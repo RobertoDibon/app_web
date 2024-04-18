@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% extends './base.html' %}
+
+<head>
+    {% block title %}
+        Home  
+    {% endblock %}
+
+    {% block customCSS %}
+        <link href="{{ url_for('static', filename='css/home_users.css') }}" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endblock %}  
+</head>
+
+<body>
+    {% block body %}
+
+    <header>
+        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="RG Workouts">
+        <div class="head_welcome">Hola {{ current_user.fullname }}</div>
+    </header>
+
+    <nav>
+        <div class="nav_title">Barra de tareas</div>
+        <div class="menu">
+            <a href="{{ url_for ('home_users') }}">
+                <img src="{{url_for('static', filename='img/home.svg')}}"> 
+            </a>
+            <a href="{{ url_for ('messages_users') }}" >    
+                <img src="{{url_for('static', filename='img/messages.svg')}}"> 
+            </a>
+            {% if new_msg > 0 %}
+                <span> {{ new_msg }} </span>    
+            {% endif %}
+            <a href="{{ url_for ('conscious_w') }}" >
+                <img src="{{url_for('static', filename='img/dumbbell_hand.svg')}}">
+            </a>    
+            <a href="#" >
+                <img src="{{url_for('static', filename='img/cutlery.svg')}}">
+            </a>
+            <a href="{{ url_for ('logout') }}">
+                <img src="{{url_for('static', filename='img/logout.svg')}}"> 
+            </a>
+        </div>
+    </nav>
+ 
+    <div class="sections">
+        <section class="sections__welcome">   
+            <p>
+                Ante todo, gracias por elegir ser parte de la Comunidad RG.
+                ¡Sos muy bienvenido! Durante estas semanas te invito a que conozcas y transitemos juntos la experiencia RG Workouts.
+                Se trata de una propuesta para iniciar una vida saludable en la que puedas aprender cómo entrenar para alcanzar tus 
+                objetivos, y también puedas disfrutar de tu tiempo de entrenamiento, tanto como cada oportunidad que tengas de sentarte 
+                a la mesa para saborear una comida. <br> La rutina de entrenamiento y el esquema de alimentación están armados para vos, en forma
+                completamente personalizada, de acuerdo con tus propósitos. Iremos trabajando uno a uno en cada punto para obtener el 
+                máximo provecho. Para eso, hagamos que tus acciones coincidan con tus deseos.
+                <br>¡Excelente comienzo!  
+            </p> 
+        </section>
+        <section class="sections__form">
+            <div class="form__contain">
+                <div class="wallpaper"></div>
+                <p>Enviá tu encuesta inicial para poder comenzar tu experiencia aqui!</p>
+                <div class="form__img">
+                    <a href="https://forms.gle/CQ2A42wCN9KCyyFJ8"><img src="static/img/female.svg"></a>
+                    <a href="https://forms.gle/MwAWbSj7HshJLiRC8"><img src="static/img/male.svg"></a> 
+                </div>
+            </div>
+            <div class="romi__image">
+                <img src="{{url_for('static', filename='img/romi.png')}}">
+            </div>
+        </section>
+    </div>  
+
+    <footer>
+        <div class="footer__title">RG Workouts</div>
+        <div class="contact">
+            <div class="contact__title">Contacto</div>
+            <a href="https://wa.me/5491137621036?text=Dejame tu consulta, Lun a Vie 12:30 a 20:00hs"><img  src="static/img/wa.svg"></a>
+            <a href="https://www.instagram.com/rg.workouts/"><img src="static/img/ig.svg"></a>
+        </div>
+        <div class="links">
+            <a href="{{ url_for ('home_users') }}">Inicio</a>
+            <a href="{{ url_for ('messages_users') }}">Mensajes</a>
+            <a href="{{ url_for ('conscious_w') }}">Entrenamiento Consciente</a>
+            <a href="#">Alimentacion Consciente</a>
+        </div>
+        <div class="line">
+        </div>
+        <div class="copyright">
+            <div class="copyright__text">
+                Todos los derechos reservados &copy;2024 RG Workouts   
+            </div>
+        </div>   
+    </footer>
+    
+    {% endblock %}
+</body>

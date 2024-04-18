@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+{% extends './base.html' %}
+
+<head>
+    {% block title %}
+        Mensajes  
+    {% endblock %}
+
+    {% block customCSS %}
+        <link href="{{ url_for('static', filename='css/messages_users.css') }}" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endblock %}  
+</head>
+
+<body>
+    {% block body %}
+
+    <header>
+        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="RG Workouts">
+        <div class="head_welcome">Hola {{ current_user.fullname }}</div>
+    </header>
+
+    <nav>
+        <div class="nav_title">Barra de tareas</div>
+        <div class="menu">
+            <a href="{{ url_for ('home_users') }}">
+                <img src="{{url_for('static', filename='img/home.svg')}}"> 
+            </a>
+            <a href="{{ url_for ('messages_users') }}" >    
+                <img src="{{url_for('static', filename='img/messages.svg')}}">     
+            </a>
+            <a href="{{ url_for ('conscious_w') }}" >
+                <img src="{{url_for('static', filename='img/dumbbell_hand.svg')}}">
+            </a>    
+            <a href="#" >
+                <img src="{{url_for('static', filename='img/cutlery.svg')}}">
+            </a>
+            <a href="{{ url_for ('logout') }}">
+                <img src="{{url_for('static', filename='img/logout.svg')}}"> 
+            </a>
+        </div>
+    </nav>
+
+    <div class="table_contain">
+        <div class="table_title">
+            <p>Mis Mensajes</p>
+        </div>
+        <div class="table_line"></div>
+        <table>
+            <thead>
+                <tr>    <!-- Table-row -->
+                <th scope="col">Asunto</th> <!-- Table-head -->
+                <th scope="col">Fecha</th>
+                <th scope="col"></th>
+                </tr>
+            </thead>    
+            <tbody>
+            {% for message in messages %}    
+                <tr>
+                    <td>{{message.title}}</td>  <!-- Table-data -->             
+                    <td>{{message.date_message}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#message_modal{{ message.id }}">Leer</button>
+                    </td>
+                </tr>
+            </tbody>
+            
+            <!-- Messages Modal -->
+            <div class="modal fade" id="message_modal{{ message.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="modal-title">{{message.title}}</div>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" onclick="update_message('{{ message.id }}')"></button>
+                            <script>
+                                function update_message(messageId) {
+                                    window.location.href = '/update_message' + messageId;
+                                }
+                            </script>
+                        </div>
+                        <div class="modal-body">
+                            <div class="message-body">
+                                {{message.description}}
+                            </div>
+                        </div>   
+                        <br>
+                        <form action="/delete_message" method="POST">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <input type="hidden" value="{{message.id}}" name="id">
+                            <button type="submit" class="btn">Eliminar</button>
+                        </form> 
+                    </div>
+                </div>
+            </div>    
+            {% endfor %}                
+        </table>
+    </div>
+
+    <footer>
+        <div class="footer__title">RG Workouts</div>
+        <div class="contact">
+            <div class="contact__title">Contacto</div>
+            <a href="https://wa.me/5491137621036?text=Dejame tu consulta, Lun a Vie 12:30 a 20:00hs"><img  src="static/img/wa.svg"></a>
+            <a href="https://www.instagram.com/rg.workouts/"><img src="static/img/ig.svg"></a>
+        </div>
+        <div class="links">
+            <a href="{{ url_for ('home_users') }}">Inicio</a>
+            <a href="{{ url_for ('messages_users') }}">Mensajes</a>
+            <a href="{{ url_for ('conscious_w') }}">Entrenamiento Consciente</a>
+            <a href="#">Alimentacion Consciente</a>
+        </div>
+        <div class="line">
+        </div>
+        <div class="copyright">
+            <div class="copyright__text">
+                Todos los derechos reservados &copy;2024 RG Workouts   
+            </div>
+        </div>   
+    </footer>
+    
+    {% endblock %}
+</body> 

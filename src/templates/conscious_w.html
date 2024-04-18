@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+{% extends './base.html' %}
+
+<head>
+    {% block title %}
+        Entrenamiento Consciente
+    {% endblock %}
+
+    {% block customCSS %}
+        <link href="{{ url_for('static', filename='css/conscious_w.css') }}" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endblock %}
+</head>
+
+<body>
+    {% block body %}
+
+    <header>
+        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="RG Workouts">
+        <div class="head_welcome">Hola {{ current_user.fullname }}</div>
+    </header>
+
+    <nav>
+        <div class="nav_title">Barra de tareas</div>
+        <div class="menu">
+            <a href="{{ url_for ('home_users') }}">
+                <img src="{{url_for('static', filename='img/home.svg')}}">
+            </a>
+            <a href="{{ url_for ('messages_users') }}" >    
+                <img src="{{url_for('static', filename='img/messages.svg')}}">     
+            </a>
+            <a href="{{ url_for ('conscious_w') }}" >
+                <img src="{{url_for('static', filename='img/dumbbell_hand.svg')}}">
+            </a>    
+            <a href="#" >
+                <img src="{{url_for('static', filename='img/cutlery.svg')}}">
+            </a>
+            <a href="{{ url_for ('logout') }}">
+                <img src="{{url_for('static', filename='img/logout.svg')}}"> 
+            </a>
+        </div>
+    </nav>
+
+    <div class="sections">
+        <h4>Entrenamiento consciente</h4>
+        <p>
+            El entrenamiento consciente es una metodología que busca entender 
+            mejor el cuerpo y sus necesidades, poner todos los sentidos en lo 
+            que se está sintiendo y en los movimientos que se están realizando 
+            para luego utilizar esta información y aumentar la fuerza física y 
+            mental evitando el riesgo de lesiones. Una vez hayas dejado atrás 
+            el periodo de principiante y tengas adquirida más experiencia, 
+            conocer más al respecto la ejecución de los ejercicios, los tipos 
+            de agarre entre otras cuestiones te facilitarán el entrenamiento. 
+            Poder despejar dudas frente a situaciones frecuentes te brindará 
+            mayor seguridad y confianza personal dependiendo menos de tu 
+            entrenador durante el entrenamiento y dilatando menos los tiempos 
+            de descanso entre series o ejercicios evitando interrumpir tu concentración.
+        </p>
+        <div class="art_text">
+            <h4>Movilidad articular</h4>
+            <div class="mov">
+                Como entrada en calor es fundamental la movilidad articular.
+                Si entrenás tren superior: de muñecas, codas y hombros.
+                Si entrenás tren inferior: tobillos, rodillas y caderas. 
+                Luego las series de Warm-Up. 
+            </div>
+            <h4>Calentamiento</h4>
+            <div class="warm">
+                Luego de realizar la movilidad articular, estas series de 
+                entrada en calor las realizarás con un peso liviano.
+                Es un aviso para tu cuerpo, que sepa que te activarás.
+            </div>
+        </div>
+
+        <div class="line_1"></div>
+        
+        <h4>Ejecución</h4>
+        <div class="execution">
+            <p>
+                A modo de fomentar una mayor conexión mente-musculo para 
+                ayudarte a disfrutar de tu entrenamiento podés analizar 
+                que tipos de fases componen o estas ejecutando durante 
+                cada ejercicio planteado en tu rutina personalizada.
+            </p>
+            <div class="phases">
+                <div class="con">
+                    <b>Fase concéntrica:</b> también conocido como fase positiva, 
+                    es donde el músculo se acorta o se concentra al contraerse.
+                </div>
+                <div class="ex">
+                    <b>Fase excéntrica:</b> o fase negativa, es un tipo de ejercicio
+                    donde se estira el músculo, pero se mantiene la contracción
+                    muscular, esto con la finalidad de soportar el peso que se 
+                    encuentre sujetando en ese momento.
+                </div>
+                <div class="iso">
+                    <b>Fase isométrica:</b> podríamos decir fase neutra cuando se 
+                    realizan “contracciones de un músculo o grupo de músculos 
+                    específicos”, pero en este ejercicio “el músculo no cambia 
+                    de largo de manera obvia, y la articulación afectada no se 
+                    mueve”. Con esta fase se ayuda a mantener y aumentar la 
+                    fuerza.
+                </div>
+            </div>
+        </div> 
+
+        <h4>El agarre</h4>
+        <div class="grip">
+            <p>
+                Una consulta frecuente es si cambiando el agarre se 
+                trabajan músculos distintos.
+                Cambiando el agarre trabajás el mismo músculo o grupo 
+                muscular, pero desde distintos ángulos.
+                Por lo tanto, al trabajar el músculo desde distintos 
+                ángulos estaremos reclutando fibras distintas consiguiendo 
+                así un trabajo más completo y finalmente un mejor resultado.
+            </p>
+            <div class="grip_types">
+                <div class="grip_1">
+                    <b>Prono:</b>
+                    Este tipo de agarre es el que utilizamos cuando las 
+                    palmas de nuestras manos están opuestas a nosotros 
+                    (hacia delante). Este agarre es el que solemos utilizar 
+                    más comúnmente en ejercicios de espalda como jalones o 
+                    dominadas.
+                </div>
+                <div class="grip_2">
+                    <b>Supino:</b>
+                    Este agarre es el que utilizamos cuando las palmas 
+                    de nuestras manos están mirando hacia nosotros. 
+                    Este tipo de agarre es el más utilizado por ejemplo 
+                    en los ejercicios de bíceps.
+                </div>
+                <div class="grip_3">    
+                    <b>Neutro:</b>
+                    El agarre neutro o martillo es el que utilizamos
+                    cuando nuestras palmas de las manos están enfrentadas 
+                    entre si (mirando una a la otra) como cuando estamos 
+                    aplaudiendo. Este tipo de agarre es utilizado normalmente 
+                    en las aperturas, el curl martillo para bíceps, el press 
+                    francés con mancuernas para tríceps, entre otros.
+                </div>
+                <div class="grip_4">
+                    <b>Mixto:</b>
+                    Este es uno de los tipos de agarre menos comunes entre 
+                    los principiantes o intermedios, ya que se suele 
+                    utilizar sobre todo en el ejercicio de peso muerto con
+                    barra muy pesado. Consiste en colocar las palmas de las 
+                    manos de forma inversa, una mirando hacia arriba y la 
+                    otra mirando hacia abajo, es decir, una en agarre supino 
+                    y la otra en agarre prono. Lo que se pretende con este 
+                    tipo de agarre es conseguir un mayor bloqueo de la barra 
+                    y así poder manejar pesos más pesados
+                </div>
+            </div>
+        </div>
+        
+        <div class="line_2"></div>
+
+        <h4>Biomecánica</h4>
+        <div class="biomecanic">
+            <p>
+                La Biomecánica es una disciplina que estudia y hace análisis 
+                físicos de los movimientos del cuerpo humano. El objetivo de 
+                la Biomecánica en las actividades deportivas es la caracterización 
+                y la mejora de las técnicas del movimiento a partir de conocimientos científicos.
+                Un análisis biomecánico puede ayudar a los deportistas a detectar 
+                posibles problemas antes de que se produzca una lesión para empezar 
+                a hacer cambios conscientes en su forma de moverse y reducir 
+                el riesgo de posibles lesiones.
+            </p>
+            <p>
+                Dentro de la biomecánica, encontramos los conceptos de
+                Cinética (estudio de las fuerzas que actúan sobre el cuerpo),
+                Cinemática (estudio de los movimientos del cuerpo).
+            </p>
+            <h4>Cinco importantes componentes de la biomecánica son:</h4>
+            <div class="basic">
+                <div class="movement">
+                    <b>Movimiento:</b>
+                    Hace referencia al desplazamiento del cuerpo o de un objeto 
+                    a través del espacio. La velocidad y la aceleración son 
+                    componentes importantes del movimiento.
+                </div>
+                <div class="force">
+                    <b>Fuerza:</b>
+                    Referencia al empuje o la tracción que provocan que
+                    una persona o un objeto aceleren, reduzcan la velocidad,
+                    se detengan o cambien de dirección.
+                </div>    
+                <div class="moment">
+                    <b>Momento:</b>
+                    El resultado de una masa y de su velocidad
+                    en su desplazamiento.
+                </div>
+                <div class="lever">
+                    <b>Palancas:</b>
+                    Nuestros brazos y piernas funcionan a modo de palancas; 
+                    una palanca está formada por tres componentes: el brazo 
+                    de resistencia, el punto de apoyo y el eje de rotación.
+                </div>
+                <div class="balance">
+                    <b>Equilibrio:</b>
+                    Se refiere a la estabilidad. Un principio importante
+                    del equilibrio es la alineación del centro de gravedad
+                    del cuerpo sobre la base de apoyo. Tener un buen equilibrio
+                    es importante para la práctica de muchos deportes y ejercicios.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer__title">RG Workouts</div>
+        <div class="contact">
+            <div class="contact__title">Contacto</div>
+            <a href="https://wa.me/5491137621036?text=Dejame tu consulta, Lun a Vie 12:30 a 20:00hs"><img  src="static/img/wa.svg"></a>
+            <a href="https://www.instagram.com/rg.workouts/"><img src="static/img/ig.svg"></a>
+        </div>
+        <div class="links">
+            <a href="{{ url_for ('home_users') }}">Inicio</a>
+            <a href="{{ url_for ('messages_users') }}">Mensajes</a>
+            <a href="{{ url_for ('conscious_w') }}">Entrenamiento Consciente</a>
+            <a href="#">Alimentacion Consciente</a>
+        </div>
+        <div class="line_footer">
+        </div>
+        <div class="copyright">
+            <div class="copyright__text">
+                Todos los derechos reservados &copy;2024 RG Workouts   
+            </div>
+        </div>   
+    </footer>
+    
+    {% endblock %}
+</body>

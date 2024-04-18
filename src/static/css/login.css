@@ -1,0 +1,219 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Titan';
+    src: url('/static/fonts/TitanOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+/* Mobile First resolution*/
+@media screen and (min-width: 350px) and (max-width: 900px) {
+    /* body */
+    body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #060c21;
+        flex-grow: 2;
+        z-index: 1;
+    }
+
+    header img {
+        margin: 15px;
+        height: 100px;
+        width: 100px;
+    }
+
+    .form {
+        margin-top: 50px;
+        position: relative;
+        background-color: #060c21;
+        border: 1px solid #000;
+        width: 270px;
+        height: 370px;
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    .form::before {
+        content: '';
+        position: absolute;
+        top: -8px;
+        left: -2px;
+        right: -2px;
+        bottom: -8px;
+        background: linear-gradient(
+        315deg,#5d20ff, #e91363
+        );
+        z-index: -1;
+        transform: skew(2deg,1deg);
+        border-radius: 10px;
+    }
+
+    .inputbox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 50px;
+    }
+
+    .inputbox p {
+        color: #f0f7f7;
+        font-family: 'Titan';
+        font-size: 14px;
+        margin: 5px;
+    }
+
+    .inputbox [type="submit"] {
+        margin: 10px;
+    }
+
+    .input {
+        width: 280px;
+        display: flex;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* footer */
+    footer {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(
+        to bottom, #060c21, #0f1a48);
+    }
+
+    .line {
+        border-bottom: solid 1px rgb(240, 240, 240);
+        width: 350px;
+        margin-bottom: 10px;
+    }
+
+    .copyright__text {
+        font-size: 10px;
+        color:#f0f7f7;
+    }    
+}
+
+/* Desktop/laptop resolution */
+@media screen and (min-width: 900px) {
+    /* body */
+    body {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 60px;
+        height: 100vh;
+        margin: 0;
+    }
+
+    /* header */
+    header {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+        background-color: #060c21; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+    }
+
+    header img {
+        margin: 15px;
+        height: 100px;
+        width: 100px;
+    }
+
+    .form {
+        margin: 50px;
+        position: relative;
+        background-color: #060c21;
+        border: 1px solid #000;
+        width: 270px;
+        height: 370px;
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    .form::before {
+        content: '';
+        position: absolute;
+        top: -8px;
+        left: -2px;
+        right: -2px;
+        bottom: -8px;
+        background: linear-gradient(
+        315deg,#5d20ff, #e91363
+        );
+        z-index: -1;
+        transform: skew(2deg,1deg);
+        border-radius: 10px;
+    }
+
+    .inputbox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 50px;
+    }
+
+    .inputbox p {
+        color: #f0f7f7;
+        font-family: 'Titan';
+        font-size: 14px;
+        margin: 5px;
+    }
+
+    .inputbox [type="submit"] {
+        margin: 10px;
+    }
+
+    .input {
+        width: 280px;
+        display: flex;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* footer */
+    footer {
+        grid-column: 1 / span 1;
+        grid-row: 2 / span 1;
+        background: linear-gradient(
+        to bottom, #060c21, #0f1a48);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .line {
+        border-bottom: solid 1px rgb(240, 240, 240);
+        width: 350px;
+        margin-bottom: 10px;
+    }
+
+    .copyright {
+        font-size: 10px;
+        color: #f0f7f7;
+    }
+}
